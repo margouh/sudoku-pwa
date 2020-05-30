@@ -1,0 +1,13 @@
+{
+    "name": "Sudoku",
+    "short_name": "Sudoku",
+    "lang": "fr-FR",
+    "start_url": "sw.js",
+    "display": "standalone",
+    "theme_color": "#FF198D",
+    "icons": [{
+        "src": "icon.png",
+        "sizes": "192x192",
+        "type": "image/png"
+    }]
+}

@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Sudoku">
+    <meta name="apple-mobile-web-app-title" content="Sudoku">
+    <meta name="theme-color" content="#FF198D">
+    <meta name="msapplication-navbutton-color" content="#FF198D">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="sw.js">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" type="image/png" sizes="192x192" href="icon.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="icon.png">
+</head>
+
+<body onkeydown="toucher(event);" onload="initGrille(true,false);">
+    <br>
+    <center>
+        <b>SUDOKU</b><br><br>
+        <table>
+            <tr>
+                <td>
+                    <div id="grille"></div>
+                </td>
+                <td align="center">
+                    <!-- Réinitialiser la grille -->
+                    <a href="#" onclick="javascript:initGrille(true,true);" style="color:green;"><b>Nouvelle grille</b></a><br><br>
+                    <a href="#" onclick="javascript:initGrille(false,true);" style="color:red;"><b>Recommencer</b></a><br><br>
+                    <b>NIVEAU</b> <br/> <br/> <select id='level' onchange="initGrille(true,true);">
+        <!--<option value='0'>Debug</option>-->
+        <option value='1' selected >Faible</option>
+        <option value='2'>Moyen</option>
+        <option value='3'>Difficile</option>
+        <option value='4'>Diabolique</option>
+        <option value='5'>Impossible</option></select><br><br>
+                    <!-- Réponses des grilles en survol-->
+                    <a href="#" onmouseover="javascript:verif(true);" onmouseout="javascript:verif(false);" style="color:blue;"><b>Verifier</b></a><br><br><br>
+                    <a href="#" onmouseover="javascript:reponse(true);" onmouseout="javascript:reponse(false);" style="color:blue;"><b>Reponse</b></a><br>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => {
+                    console.log('Service worker registered! 😎', reg);
+                })
+                .catch(err => {
+                    console.log('😥 Service worker registration failed: ', err);
+                });
+        });
+    }
+</script>
+<script src="sw.js"></script>
+<script src="js/main.js"></script>
+<script src="script.js"></script>
+
+</html>

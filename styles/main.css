@@ -1,0 +1,31 @@
+.tabloInterieur {
+    width: 20px;
+    height: 20px;
+    font-family: Tahoma;
+    font-size: 12px;
+    color: black;
+    text-align: center;
+    border: 1px #c0c0c0 solid;
+    cursor: pointer;
+}
+
+.tabloInterieur b {
+    color: blue;
+    cursor: pointer;
+}
+
+.tabloExterieur {
+    border: 2px #c0c0c0 solid;
+    text-align: center;
+}
+
+td {
+    font-family: Tahoma;
+    font-size: 12px;
+}
+
+a {
+    font-family: Tahoma;
+    font-size: 12px;
+    text-decoration: none;
+}
